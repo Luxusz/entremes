@@ -7,7 +7,7 @@
 
 use yii\helpers\Html;
 
-$this->title = "Ubicacion";
+$this->title = "Locacion";
 ?>
 <div class="site-error" >
 
