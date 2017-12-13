@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use yii\web\Session;
 
 class SiteController extends Controller
 {
@@ -145,10 +146,20 @@ class SiteController extends Controller
     
     public function actionCarrito($ide)
     {
-        //$arre=array();
-        //array_spice($arre,,0,$ide);
-        return $this->render('carrito',['ide'=>$ide]);
-        $hola=Yii::$app->user->id=1;
+        if(Yii::$app->session->get('algo')>0){
+            
+        }
+        else{
+            $arre = int;
+            //array_spice($arre,,0,$ide);
+            return $this->render('carrito',['ide'=>$ide]);
+            $session=Yii::$app->session;
+            $session->open();
+            $session->set('algo',$arre++);
+        }
+            
+        
+        
     }
     
 }
