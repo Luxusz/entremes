@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 $this->title = 'Entremés';
-Yii::$app->params['arr'] = array();
+Yii::$app->params['arra'] = array();
 ?>
 <body>
     <div class='contenedor'>
@@ -27,8 +27,7 @@ Yii::$app->params['arr'] = array();
             <p style="font-size: 13pt; color:darkred;"><?="$".$producto->Valor;?></p> 
             <br>
             <br>
-            <?= Html::a('Agregar al carrito', ['/site/carrito'], ['class' => 'btn btn-primary']);
-                $arr=+$producto->ID  ;
+            <?= Html::a('Agregar al carrito', ['/site/carrito', 'ide'=>$producto->ID], ['class' => 'btn btn-primary']);
             ?>
         </div> 
     </div>

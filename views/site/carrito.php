@@ -6,7 +6,6 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
-$carrito =  Yii::$app->params['arr'];
 $this->title = "Carrito";
 ?>
 <div class="site-error" >
@@ -14,10 +13,9 @@ $this->title = "Carrito";
     <h1><?= Html::encode($this->title) ?></h1>
     <br>
     <h1>
-            <?php foreach($carrito as $aux){
-                $cantidad = count(\app\models\Producto::findAll(['Tipo_ID'=>$categoria]));
+            <?php print_r($arre);
                     
-            }
+            
             ?>
       
     </h1>

@@ -11,6 +11,7 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
+    public $contador;
     public function actionInventario ()
     {
         $categoria = "";
@@ -143,9 +144,11 @@ class SiteController extends Controller
         return $this->render('locacion');
     }
     
-    public function actionCarrito()
+    public function actionCarrito($ide)
     {
-        return $this->render('carrito');
+        $arre=array();
+        array_spice($arre,$contador++,0,$ide);
+        return $this->render('carrito',['arre'=>$arre]);
     }
     
 }
