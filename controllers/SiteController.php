@@ -162,6 +162,15 @@ class SiteController extends Controller
             $session->set('carrito',$carrito);
 
         }
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
+
+            return $this->refresh();
+        }
+        return $this->render('carrito', [
+            'model' => $model,
+        ]);
         
         /*
         $miarreglo=array();
@@ -169,7 +178,7 @@ class SiteController extends Controller
         Yii::$app()->params['arr']=$miarreglo;
          */  
         
-        return $this->render('carrito');
+        //return $this->render('carrito');
         
         
     }

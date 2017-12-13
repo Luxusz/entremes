@@ -4,8 +4,9 @@
 /* @var $name string */
 /* @var $message string */
 /* @var $exception Exception */
-
 use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use yii\captcha\Captcha;
 $this->title = "Carrito";
 
 
@@ -31,9 +32,22 @@ $carrito = $session->get('carrito');
     }
     else{
         ?>
+    <div class="row">
+            <div class="col-lg-5">
+
+                <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+
+                    <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+
+                    <?= $form->field($model, 'email') ?>
+
+                    <?= $form->field($model, 'subject')->hiddenInput(['value'=>'Cotización'])->label(false)?>
+
+            </div>
+        </div>
     <h1> En tu carrito tienes: </h1>
     <br>
-    <table class="table table-bordered" >
+    <table class="table table-bordered" id="tbdecarrito" >
                 <thead>
                     <tr>
                         <th>Imagen</ht>
@@ -64,8 +78,23 @@ $carrito = $session->get('carrito');
                 }
             }
         }
-
+        $tabla='carritolleno';
         ?>
             </tbody>
     </table>
+    <div class="row">
+            <div class="col-lg-5">                
+                    <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                        'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                    ]) ?>
+
+            </div>
+        </div>
+    <div clasS="row"
+    <?= $form->field($model, 'body')->hiddenInput(['value'=>$tabla])->label(false)?>;
+    <div class="form-group">
+                        <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                    </div>
+
+                <?php ActiveForm::end(); ?>
 </div>
