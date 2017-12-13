@@ -172,7 +172,7 @@ class SiteController extends Controller
             if(!$session->isActive){
                 $session->open();
             }
-            $carrito = $session->get('carrito');
+            /*$carrito = $session->get('carrito');
             
             $mensaje = "Hola .... tus productos son: \n";
             foreach($carrito as $producto_id){
@@ -182,10 +182,11 @@ class SiteController extends Controller
             
             $mensaje .= "Gracias por contactarte con nosotros";
             $cotizacion='Cotización';
-            $model->contact(Yii::$app->params['adminEmail']);
-            
+            $model->contact(Yii::$app->params['adminEmail']);*/
+            $model->contact(Yii::$app->params['adminEmail']);            
             Yii::$app->session->destroy();
             return $this->goHome();
+            
         }
         return $this->render('carrito', [
             'model' => $model,

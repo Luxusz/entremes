@@ -15,7 +15,7 @@ if(!$session->isActive){
     $session->open();
 }
 $carrito = $session->get('carrito');
-
+$mensaje = "Hola .... tus productos son: \n";
 
 //Yii::$app->session->destroy();
 ?>
@@ -65,6 +65,7 @@ $carrito = $session->get('carrito');
                                     "<td>$".$vp->Valor."</td>".
                                     "<td>1</td>".
                                 "</tr>";
+                        $mensaje .= "Producto: ".$vp->Nombre." - Precio: $".$vp->Valor." \n";
                         echo $fila;
                     }
                 }
@@ -99,6 +100,12 @@ $carrito = $session->get('carrito');
 
             </div>
         </div>
+    <?php
+        $cotizacion='Cotización';
+        $mensaje .= "Gracias por contactarte con nosotros";
+        $form->field($model, 'subject')->hiddenInput(['value'=>$cotizacion])->label(false);
+        $form->field($model, 'body')->hiddenInput(['value'=>$mensaje])->label(false)
+    ?>
          <div class="row">
              <div class="col-lg-7"></div>
              <div class="col-lg-5">
