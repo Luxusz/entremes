@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\BaseUrl;
-$this->title = 'Entremés';
+$this->title = 'La Carreta';
 ?>
 <div class='contenedor' style="background-color: yellow !important">
     <div class="row" style="background-color: yellow !important">
