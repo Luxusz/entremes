@@ -181,8 +181,5 @@ class ProductoController extends Controller
         }
     }
     
-    public function actionCarrito()
-    {
-        return $this->render('carrito');
-    }
+    
 }

@@ -143,4 +143,9 @@ class SiteController extends Controller
         return $this->render('locacion');
     }
     
+    public function actionCarrito()
+    {
+        return $this->render('carrito');
+    }
+    
 }
