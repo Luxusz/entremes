@@ -21,14 +21,14 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link rel="shortcut icon" href="../web/images/iconos/logo.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../IMAGENES/logo-la-carreta-OK.jpg" type="image/x-icon"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
     <?php $this->head() ?>
 </head>
 <body >
 <?php $this->beginBody() ?>
 
-<div class="wrap" >
+    <div class="wrap" style="background-color: yellow">
     <?php
     NavBar::begin([
         'brandLabel' => Html::img('@web/images/iconos/logo.png', ['alt'=>Yii::$app->name]),

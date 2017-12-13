@@ -5,7 +5,7 @@
 
 use yii\helpers\Html;
 
-$this->title = '';
+$this->title = 'Historia';
 ?>
 <body style="background-color: yellow">
     <div class="row" style="background-color: yellow">

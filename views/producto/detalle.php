@@ -1,7 +1,7 @@
 <?php
 $this->title = 'Entremés';
 ?>
-<body>
+<body style="background-color: yellow">
     <div class='contenedor'>
 <div class="row">
     <div class="col-md-12">

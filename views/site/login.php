@@ -10,38 +10,40 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Ambiente Privado';
 
 ?>
-<div class="row" style="color:#f39334;">
-    <div class="col-md-4"></div>
-    <div class="col-md-8">
-        <img height="300px" src="<?=yii\helpers\Url::base() . "/images/ingresar.png";?>"/>
-        <br/>
-        <h1><?= Html::encode($this->title) ?></h1>
-    
+<body style="background-color: yellow">
+    <div class="row" style="color:#f39334;">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <img height="300px" src="<?=yii\helpers\Url::base() . "/images/ingresar.png";?>"/>
+            <br/>
+            <h1><?= Html::encode($this->title) ?></h1>
 
-        <?php $form = ActiveForm::begin([
-            'id' => 'login-form',
-            'layout' => 'horizontal',
-            'fieldConfig' => [
-                'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-                'labelOptions' => ['class' => 'col-lg-1 control-label'],
-            ],
-        ]); ?>
 
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+            <?php $form = ActiveForm::begin([
+                'id' => 'login-form',
+                'layout' => 'horizontal',
+                'fieldConfig' => [
+                    'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                    'labelOptions' => ['class' => 'col-lg-1 control-label'],
+                ],
+            ]); ?>
 
-            <?= $form->field($model, 'password')->passwordInput() ?>
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
-            <?= $form->field($model, 'rememberMe')->checkbox([
-                'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            ]) ?>
+                <?= $form->field($model, 'password')->passwordInput() ?>
 
-            <div class="form-group">
-                <div class="col-lg-offset-1 col-lg-11">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                <?= $form->field($model, 'rememberMe')->checkbox([
+                    'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
+                ]) ?>
+
+                <div class="form-group">
+                    <div class="col-lg-offset-1 col-lg-11">
+                        <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    </div>
                 </div>
-            </div>
 
-        <?php ActiveForm::end(); ?>
+            <?php ActiveForm::end(); ?>
+        </div>
     </div>
-</div>
-<br>
+    <br>
+</body>
