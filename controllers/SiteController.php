@@ -182,7 +182,7 @@ class SiteController extends Controller
             
             $mensaje .= "Gracias por contactarte con nosotros";
             $cotizacion='Cotización';
-            $model->contactos(Yii::$app->params['adminEmail'],$mensaje,$cotizacion);
+            $model->contact(Yii::$app->params['adminEmail']);
             
             Yii::$app->session->destroy();
             return $this->goHome();
