@@ -8,7 +8,6 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use yii\web\Session;
 
 class SiteController extends Controller
 {
@@ -144,20 +143,33 @@ class SiteController extends Controller
         return $this->render('locacion');
     }
     
-    public function actionCarrito($ide)
+    public function actionCarrito($ide = null)
     {
-        if(Yii::$app->session->get('algo')>0){
-            
+        
+        if($ide != null){
+            $session = Yii::$app->session;
+            if(!$session->isActive){
+                $session->open();
+            }
+            $carrito = $session->get('carrito');
+            if($carrito == null){
+                $carrito = array();
+            }
+            if(!in_array($ide, $carrito)){
+                $carrito[] = $ide;
+            }
+
+            $session->set('carrito',$carrito);
+
         }
-        else{
-            $arre = int;
-            //array_spice($arre,,0,$ide);
-            return $this->render('carrito',['ide'=>$ide]);
-            $session=Yii::$app->session;
-            $session->open();
-            $session->set('algo',$arre++);
-        }
-            
+        
+        /*
+        $miarreglo=array();
+        $miarreglo[]=$ide;
+        Yii::$app()->params['arr']=$miarreglo;
+         */  
+        
+        return $this->render('carrito');
         
         
     }
