@@ -28,6 +28,7 @@ $this->title = 'Entremés';
             <br>
             <br>
             <?= Html::a('Agregar al carrito', ['/site/carrito', 'ide'=>$producto->ID,], ['class' => 'btn btn-primary']);
+            
             ?>
         </div> 
     </div>
