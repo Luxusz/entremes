@@ -29,7 +29,7 @@ $this->title = 'La Carreta';
                 ?>
                 <div class="item <?= ($i == 0) ? 'active' : ''; ?>">
                     <a href="index.php?r=producto/detalle&id=<?= $destacado->ID ?>">
-                        <img style="height:520px;" src="<?php echo yii\helpers\Url::base() . "/images/productos/pro_" . $destacado->ID . ".jpg"; ?>" alt="<?= $destacado->Nombre; ?>">
+                        <img style="height:120px;" src="<?php echo yii\helpers\Url::base() . "/images/productos/pro_" . $destacado->ID . ".jpg"; ?>" alt="<?= $destacado->Nombre; ?>">
                         <div class="carousel-caption">
                             <h3><?= $destacado->Nombre; ?></h3>
                             <p><?= $destacado->Descripcion; ?></p>

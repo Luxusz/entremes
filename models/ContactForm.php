@@ -64,4 +64,18 @@ class ContactForm extends Model
         }
         return false;
     }
+    public function contactos($email, $body, $subject)
+    {
+        if ($this->validate()) {
+            Yii::$app->mailer->compose()
+                ->setTo($email)
+                ->setFrom([$this->email => $this->name])
+                ->setSubject($subject)
+                ->setTextBody($body)
+                ->send();
+
+            return true;
+        }
+        return false;
+    }
 }
