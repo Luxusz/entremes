@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\Producto;
 
 class SiteController extends Controller
 {
@@ -163,10 +164,28 @@ class SiteController extends Controller
 
         }
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+        if ($model->load(Yii::$app->request->post())) {
             Yii::$app->session->setFlash('contactFormSubmitted');
 
-            return $this->refresh();
+            
+            $session = Yii::$app->session;
+            if(!$session->isActive){
+                $session->open();
+            }
+            $carrito = $session->get('carrito');
+            
+            $mensaje = "Hola .... tus productos son: \n";
+            foreach($carrito as $producto_id){
+                $producto = Producto::findOne($producto_id);
+                $mensaje .= "Producto: ".$producto->Nombre." - Precio: $".$producto->Valor." \n";
+            }
+            
+            $mensaje .= "Gracias por contactarte con nosotros";
+            $cotizacion='Cotización';
+            $model->contactos(Yii::$app->params['adminEmail'],$mensaje,$cotizacion);
+            
+            Yii::$app->session->destroy();
+            return $this->goHome();
         }
         return $this->render('carrito', [
             'model' => $model,

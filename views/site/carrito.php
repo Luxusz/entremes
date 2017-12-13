@@ -69,7 +69,6 @@ $carrito = $session->get('carrito');
                     }
                 }
             }
-            $tabla='carritolleno';
             ?>
                 </tbody>
             </table>    
@@ -89,22 +88,17 @@ $carrito = $session->get('carrito');
 
                     <?= $form->field($model, 'email') ?>
 
-                    <?= $form->field($model, 'subject')->hiddenInput(['value'=>'Cotización'])->label(false)?>
-
         </div>
     </div> 
     <div class="row">
         <div class="col-lg-3"></div>
             <div class="col-lg-5">                
                     <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                        'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                        'template' => '<div class="row"><div class="col-lg-4">{image}</div><div class="col-lg-6">{input}</div></div>',
                     ]) ?>
 
             </div>
         </div>
-    <div clasS="row"
-    <?= $form->field($model, 'body')->hiddenInput(['value'=>$fila])->label(false)?>
-         
          <div class="row">
              <div class="col-lg-7"></div>
              <div class="col-lg-5">
