@@ -6,7 +6,7 @@ $this->title = 'Productos';
 <div class='contenedor' style="background-color: yellow !important">
     <div class="row" style="background-color: yellow !important">
         <div class="col-md-8">
-            <img src="<?=yii\helpers\Url::base() . "/images/productos.png";?>"/>
+            <img width="1200" height="400" src="<?=yii\helpers\Url::base() . "/images/horta.png";?>"/>
         </div>
     </div>
     <div class="clearfix"></div>

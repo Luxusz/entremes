@@ -1,6 +1,6 @@
 <body style="background-color: yellow">
 <div class="row" style="background-color: yellow">
-    <img src="<?=yii\helpers\Url::base();?>/images/contacto.png">
+    <img src="<?=yii\helpers\Url::base();?>/images/iconos/contacto2.png" width="1200" height="200">
 </div>
 <br>
 <?php

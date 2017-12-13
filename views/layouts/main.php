@@ -21,7 +21,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link rel="shortcut icon" href="../IMAGENES/logo-la-carreta-OK.jpg" type="image/x-icon"/>
+    <link rel="shortcut icon" href="../images/iconos/logo-la-carreta-OK.png" type="image/x-icon"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
     <?php $this->head() ?>
 </head>
@@ -31,13 +31,13 @@ AppAsset::register($this);
     <div class="wrap" style="background-color: yellow">
     <?php
     NavBar::begin([
-        'brandLabel' => Html::img('@web/images/iconos/logo.png', ['alt'=>Yii::$app->name]),
+        'brandLabel' => Html::img('@web/images/iconos/logo.png'   , ['alt'=>Yii::$app->name]),
         'options' => [
             'class' => 'navbar navbar-inverse navbar-fixed-top',
         ],
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Inicio', 'url' => ['/site/index'],'visible'=>Yii::$app->user->isGuest],            
             ['label' => 'Historia', 'url' => ['/site/about'],'visible'=>Yii::$app->user->isGuest],
@@ -64,6 +64,7 @@ AppAsset::register($this);
         .navbar{
             background-color:#f39334;
             border-color:#f39334;
+            text-align: center;
         }
         .navbar-right{
             

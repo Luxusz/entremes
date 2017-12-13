@@ -9,7 +9,7 @@ $this->title = 'Historia';
 ?>
 <body style="background-color: yellow">
     <div class="row" style="background-color: yellow">
-        <img src="<?=yii\helpers\Url::base();?>/images/nosotros.png">
+        <img src="<?=yii\helpers\Url::base();?>/images/fruta.jpg" width="1200" height="200">
     </div>
     <div class="clearfix" style="background-color: yellow"><br/></div>
     <div class="site-about row" style="background-color: yellow">
