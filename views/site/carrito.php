@@ -7,13 +7,15 @@
 
 use yii\helpers\Html;
 $this->title = "Carrito";
+$are = Yii::$app->params['arra'];
+$are[]=$ide;
 ?>
 <div class="site-error" >
 
     <h1><?= Html::encode($this->title) ?></h1>
     <br>
     <h1>
-            <?php print_r($arre);
+            <?php print_r($are);
                     
             
             ?>

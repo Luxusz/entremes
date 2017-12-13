@@ -11,7 +11,6 @@ use app\models\ContactForm;
 
 class SiteController extends Controller
 {
-    public $contador;
     public function actionInventario ()
     {
         $categoria = "";
@@ -146,9 +145,10 @@ class SiteController extends Controller
     
     public function actionCarrito($ide)
     {
-        $arre=array();
-        array_spice($arre,$contador++,0,$ide);
-        return $this->render('carrito',['arre'=>$arre]);
+        //$arre=array();
+        //array_spice($arre,,0,$ide);
+        return $this->render('carrito',['ide'=>$ide]);
+        $hola=Yii::$app->user->id=1;
     }
     
 }
