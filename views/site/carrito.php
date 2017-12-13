@@ -21,7 +21,7 @@ $carrito = $session->get('carrito');
 ?>
 <div class="site-error" >
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <!--<h1><?= Html::encode($this->title) ?></h1>-->
     <br>
     <?php
     if($carrito == null)
@@ -31,9 +31,57 @@ $carrito = $session->get('carrito');
         echo 'No tienes nada en tu carrito';
     }
     else{
-        ?>
+        ?>  
+    <br>
     <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-5">
+            <h1> En tu carrito tienes: </h1>
+            <br>
+            <table class="table table-bordered" id="tbdecarrito" style="width: 200px">
+                <thead>
+                    <tr>
+                        <th>Imagen</ht>
+                        <th>Nombre</th>
+                        <th>Precio</th>                
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <?php
+                foreach($carrito as $producto_id){
+                    $productoc= \app\models\Producto::findAll(['ID'=>$producto_id]);  
+
+                ?>
+                <tbody id="carritolleno" style=" background-color: white">
+                    <?php
+
+                    $vp = new \app\models\Producto();
+                    foreach($productoc as $vp){
+                        //$np = Products::findOne($vp->products_id);
+                        $fila = "<tr>".
+                                   "<td>".
+                                        "<img style='height:50px;' src='".yii\helpers\Url::base() . "/images/productos/pro_" . $vp->ID . ".jpg'></td>".
+                                   "<td>".$vp->Nombre."</td>".
+                                    "<td>$".$vp->Valor."</td>".
+                                    "<td>1</td>".
+                                "</tr>";
+                        echo $fila;
+                    }
+                }
+            }
+            $tabla='carritolleno';
+            ?>
+                </tbody>
+            </table>    
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-lg-3"></div>
             <div class="col-lg-5">
+                
+                <h3>Ahora por favor ingresa los siguientes datos</h3>
+                <br>
 
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
@@ -43,46 +91,10 @@ $carrito = $session->get('carrito');
 
                     <?= $form->field($model, 'subject')->hiddenInput(['value'=>'Cotización'])->label(false)?>
 
-            </div>
         </div>
-    <h1> En tu carrito tienes: </h1>
-    <br>
-    <table class="table table-bordered" id="tbdecarrito" >
-                <thead>
-                    <tr>
-                        <th>Imagen</ht>
-                        <th>Nombre</th>
-                        <th>Precio</th>                
-                        <th>Cantidad</th>
-                    </tr>
-                </thead>
-    <?php
-        foreach($carrito as $producto_id){
-            $productoc= \app\models\Producto::findAll(['ID'=>$producto_id]);  
-
-?>
-            <tbody id="carritolleno">
-                <?php
-
-                $vp = new \app\models\Producto();
-                foreach($productoc as $vp){
-                    //$np = Products::findOne($vp->products_id);
-                    $fila = "<tr>".
-                               "<td>".
-                                    "<img style='height:50px;' src='".yii\helpers\Url::base() . "/images/productos/pro_" . $vp->ID . ".jpg'></td>".
-                               "<td>".$vp->Nombre."</td>".
-                                "<td>$".$vp->Valor."</td>".
-                                "<td>1</td>".
-                            "</tr>";
-                    echo $fila;
-                }
-            }
-        }
-        $tabla='carritolleno';
-        ?>
-            </tbody>
-    </table>
+    </div> 
     <div class="row">
+        <div class="col-lg-3"></div>
             <div class="col-lg-5">                
                     <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
                         'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
@@ -91,10 +103,15 @@ $carrito = $session->get('carrito');
             </div>
         </div>
     <div clasS="row"
-    <?= $form->field($model, 'body')->hiddenInput(['value'=>$tabla])->label(false)?>;
-    <div class="form-group">
-                        <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
-                    </div>
-
-                <?php ActiveForm::end(); ?>
+    <?= $form->field($model, 'body')->hiddenInput(['value'=>$fila])->label(false)?>
+         
+         <div class="row">
+             <div class="col-lg-7"></div>
+             <div class="col-lg-5">
+                  <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+             </div>
+             
+        </div>
+         <br>
+        <?php ActiveForm::end(); ?>
 </div>
