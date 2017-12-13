@@ -1,9 +1,10 @@
 <?php
 /* @var $this yii\web\View */
 
-$this->title = 'Entremés';
+$this->title = 'La Carreta';
 ?>
 <br/>
+<body style="background-color: yellow"> 
 <center>
     <div id="myCarousel" class="carousel slide" style="width:1000px;" data-ride="carousel">
         <!-- Indicators -->
@@ -57,6 +58,7 @@ $this->title = 'Entremés';
         Para más información contáctese al +56 9 79830201 o al +56 9 92400339
     </div>
 </center>
+</body>
 <style>
     .carousel-control{
         color:orange !important;

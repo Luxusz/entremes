@@ -13,10 +13,10 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
 
-$this->title = '';
+$this->title = 'Contacto';
 
 ?>
-<div class="container" style="background-color: yellow"
+<div class="container" style="background-color: yellow">
 <div class="site-contact" style="color: black">
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -58,8 +58,8 @@ $this->title = '';
             </div>
         </div>
 
-    <?php endif; ?>
-</div>
+         <?php endif; ?>
+    </div>
 </div>
 </body>
 <style>
