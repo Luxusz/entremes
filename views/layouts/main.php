@@ -31,7 +31,7 @@ AppAsset::register($this);
     <div class="wrap" style="background-color: yellow">
     <?php
     NavBar::begin([
-        'brandLabel' => Html::img('@web/images/iconos/logo-la-carreta-OK.png'   , ['alt'=>Yii::$app->name]),
+        'brandLabel' => Html::img('@web/images/iconos/carreta.png'   , ['alt'=>Yii::$app->name]),
         'options' => [
             'class' => 'navbar navbar-inverse navbar-fixed-top',
         ],
