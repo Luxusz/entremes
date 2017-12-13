@@ -180,4 +180,9 @@ class ProductoController extends Controller
             throw new NotFoundHttpException('La pagina que solicito no existe o Error en la digitacion de la URL.');
         }
     }
+    
+    public function actionCarrito()
+    {
+        return $this->render('carrito');
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 $this->title = 'Entremés';
+Yii::app()->params['arr'] = array();
 ?>
 <body>
     <div class='contenedor'>
@@ -23,6 +24,11 @@ $this->title = 'Entremés';
         </div> 
         <div>
             <p style="font-size: 13pt; color:darkred;"><?="$".$producto->Valor;?></p> 
+            <br>
+            <br>
+            <?= Html::a('Agregar al carrito', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']);
+                $arr=+$producto->ID  ;
+            ?>
         </div> 
     </div>
 </div>
