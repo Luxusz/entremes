@@ -30,38 +30,42 @@ $carrito = $session->get('carrito');
         echo 'No tienes nada en tu carrito';
     }
     else{
+        ?>
+    <h1> En tu carrito tienes: </h1>
+    <br>
+    <table class="table table-bordered" >
+                <thead>
+                    <tr>
+                        <th>Imagen</ht>
+                        <th>Nombre</th>
+                        <th>Precio</th>                
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+    <?php
         foreach($carrito as $producto_id){
-            
-            $productoc= \app\models\Producto::findAll(['Tipo_ID'=>$producto_id]);  
-            var_dump($carrito);
-        
-    ?>
-            <table class="table table-bordered" >
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Precio</th>                
-                            <th>Cantidad</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ingredientes">
-                        <?php
+            $productoc= \app\models\Producto::findAll(['ID'=>$producto_id]);  
 
-                        $vp = new \app\models\Producto();
-                        foreach($productoc as $vp){
-                            //$np = Products::findOne($vp->products_id);
-                            $fila = "<tr>".
-                                       " <td>".$vp->Nombre."</td>".
-                                        "<td>".$vp->Precio."</td>".
-                                        "<td>".$np->Cantidad."</td>".
-                                        "<td>".
-                                    "</tr>";
-                            echo $fila;
-                        }
-                    }
+?>
+            <tbody id="carritolleno">
+                <?php
+
+                $vp = new \app\models\Producto();
+                foreach($productoc as $vp){
+                    //$np = Products::findOne($vp->products_id);
+                    $fila = "<tr>".
+                               "<td>".
+                                    "<img style='height:50px;' src='".yii\helpers\Url::base() . "/images/productos/pro_" . $vp->ID . ".jpg'></td>".
+                               "<td>".$vp->Nombre."</td>".
+                                "<td>$".$vp->Valor."</td>".
+                                "<td>1</td>".
+                            "</tr>";
+                    echo $fila;
                 }
+            }
+        }
 
-            ?>
-        </tbody>
+        ?>
+            </tbody>
     </table>
 </div>
