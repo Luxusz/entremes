@@ -21,7 +21,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link rel="shortcut icon" href="web/images/iconos/LogoCarreta.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="./favicon.ico?v=1?v=1" type="image/x-icon"  />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
     <?php $this->head() ?>
 </head>
