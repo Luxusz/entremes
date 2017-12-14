@@ -26,11 +26,13 @@ $this->title = 'Entremés';
         <div>
             <p style="font-size: 13pt; color:darkred;"><?="$".$producto->Valor;?></p> 
             <br>
-            <br>
-            <?= Html::a('Agregar al carrito', ['/site/carrito', 'ide'=>$producto->ID,], ['class' => 'btn btn-primary']);
+            <br>            
+        </div> 
+    </div>
+    <div class="col-md-2">
+        <?= Html::a('Agregar al carrito', ['/site/carrito', 'ide'=>$producto->ID,], ['class' => 'btn btn-success btn-lg btn-block active']);
             
             ?>
-        </div> 
     </div>
 </div>
 </div>

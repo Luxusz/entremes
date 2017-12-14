@@ -53,6 +53,21 @@ $this->title = 'La Carreta';
         </a>
     </div>
     <br/>
+    <br/>
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-1">
+            <a href="index.php?r=site/inventario"><img src="<?php echo yii\helpers\Url::base() . "/images/iconos/carreta.png"; ?>" title="Agrega al carrito"></a>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <div class='footer' style=" background-color: #f39334; border-radius: 10px;
         padding:15px; color:white;">
         Para más información contáctese al +56 9 79830201 o al +56 9 92400339
