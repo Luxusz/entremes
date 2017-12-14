@@ -16,7 +16,7 @@ if(!$session->isActive){
     $session->open();
 }
 $carrito = $session->get('carrito');
-$mensaje = "Hola .... tus productos son: \n";
+$mensaje = "Hola .... tus productos son:\n";
 
 ?>
 <div class="container" style="background-color: yellow">
@@ -72,7 +72,7 @@ $mensaje = "Hola .... tus productos son: \n";
                                                 "<td>$".$vp->Valor."</td>".
                                                 "<td>1</td>".
                                             "</tr>";
-                                    $mensaje .= "Producto: ".$vp->Nombre." - Precio: $".$vp->Valor." \n";
+                                    $mensaje .= "Producto: ".$vp->Nombre." - Precio: $".$vp->Valor."\n";
                                     echo $fila;
                                 }
                             }
@@ -86,6 +86,7 @@ $mensaje = "Hola .... tus productos son: \n";
         <h3>Ahora por favor ingresa los siguientes datos</h3>
         <br>        
         <div class="row">
+            <div class="col-lg-3"></div>
             <div class="col-lg-5">
 
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
@@ -105,7 +106,10 @@ $mensaje = "Hola .... tus productos son: \n";
                     ]) ?>
 
                     <div class="form-group">
-                        <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-3">
+                            <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                        </div>
                     </div>
 
                 <?php ActiveForm::end(); ?>
