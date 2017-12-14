@@ -64,7 +64,7 @@ class ContactForm extends Model
         }
         return false;
     }
-    public function contactos($email, $body, $subject)
+    public function contactos($email)
     {
         if ($this->validate()) {
             Yii::$app->mailer->compose()

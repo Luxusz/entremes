@@ -146,7 +146,17 @@ class SiteController extends Controller
     
     public function actionCarrito($ide = null)
     {
-        
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post())) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
+            $session = Yii::$app->session;
+            if(!$session->isActive){
+                $session->open();
+            }
+            $model->contact(Yii::$app->params['adminEmail']);
+            Yii::$app->session->destroy();
+            return $this->goHome();
+        }
         if($ide != null){
             $session = Yii::$app->session;
             if(!$session->isActive){
@@ -163,42 +173,10 @@ class SiteController extends Controller
             $session->set('carrito',$carrito);
 
         }
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post())) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
-
-            
-            $session = Yii::$app->session;
-            if(!$session->isActive){
-                $session->open();
-            }
-            /*$carrito = $session->get('carrito');
-            
-            $mensaje = "Hola .... tus productos son: \n";
-            foreach($carrito as $producto_id){
-                $producto = Producto::findOne($producto_id);
-                $mensaje .= "Producto: ".$producto->Nombre." - Precio: $".$producto->Valor." \n";
-            }
-            
-            $mensaje .= "Gracias por contactarte con nosotros";
-            $cotizacion='Cotización';
-            $model->contact(Yii::$app->params['adminEmail']);*/
-            $model->contact(Yii::$app->params['adminEmail']);            
-            Yii::$app->session->destroy();
-            return $this->goHome();
-            
-        }
         return $this->render('carrito', [
             'model' => $model,
         ]);
         
-        /*
-        $miarreglo=array();
-        $miarreglo[]=$ide;
-        Yii::$app()->params['arr']=$miarreglo;
-         */  
-        
-        //return $this->render('carrito');
         
         
     }
