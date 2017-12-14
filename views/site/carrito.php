@@ -21,21 +21,19 @@ $mensaje = "Hola .... tus productos son:\n";
 ?>
 <div class="container" style="background-color: yellow">
 <div class="site-contact" style="color: black">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?php if (Yii::$app->session->hasFlash('contactFormSubmitted')){ ?>
-
-        <div class="alert alert-success">
-            Muchas Gracias por Contactarnos, Le responderemos sus dudas e inquetiudes en un momento.
-        </div>
+    <!--<h1><?= Html::encode($this->title) ?></h1>-->
 
     <?php
-        }
-        else
-        {
             if($carrito == null){
                 $carrito[]=array();
-                echo 'No tienes nada en tu carrito';
+                ?>
+                <div class="row">
+                    <div class="col-lg-3"></div>
+                    <div class="col-lg-5">
+                        <h3>Por favor agrega productos a tu carrito!</h3>
+                    </div>
+                </div>
+    <?php
             }
             else{
                 ?>
@@ -76,14 +74,18 @@ $mensaje = "Hola .... tus productos son:\n";
                                     echo $fila;
                                 }
                             }
-                       }
+                       
                     ?>
                             </tbody>
                 </table>    
             </div>
         </div>
         <br>
-        <h3>Ahora por favor ingresa los siguientes datos</h3>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-5"><h3>Ahora por favor ingresa los siguientes datos</h3></div>
+        </div>
+        
         <br>        
         <div class="row">
             <div class="col-lg-3"></div>
